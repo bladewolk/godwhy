@@ -13,18 +13,12 @@ use yii\widgets\ActiveForm;
 
 <?php ActiveForm::end(); ?>
 
-<?php var_dump($files); ?>
-<?php echo count($files); ?>
 <?php foreach ($files as $item) {
     echo '<li onclick=ajaxLoad("' . $item . '") ><b > ';
     echo $item;
     echo '</b ></li > ';
 }
 ?>
-<?php
-echo \yii\helpers\Url::toRoute('site/request');
-?>
-
 
 <div class="files">
 

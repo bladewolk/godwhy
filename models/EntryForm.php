@@ -11,7 +11,7 @@ class EntryForm extends Model
     public function rules()
     {
         return [
-            ['file', 'required', 'message' => 'op'],
+            ['file', 'required', 'message' => 'Oops'],
             [['file'], 'file']
         ];
     }

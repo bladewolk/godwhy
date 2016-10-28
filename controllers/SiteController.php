@@ -70,10 +70,10 @@ class SiteController extends Controller
             // делаем что-то полезное с $model ...
             $model->file = UploadedFile::getInstance($model, 'file');
             $model->file->saveAs('files/' . $model->file->baseName . "." . $model->file->extension);
-//            return $this->render('entry-confirm',
-//                [
-//                    'data' => 'DONE'
-//                ]);
+            return $this->render('entry-confirm',
+                [
+                    'data' => 'DONE'
+                ]);
 
         }
         // либо страница отображается первый раз, либо есть ошибка в данных
