@@ -5,7 +5,6 @@ use yii\widgets\ActiveForm;
 ?>
 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
-<?= $form->field($model, 'file')->fileInput() ?>
 
 <div class="form-group">
     <?= Html::submitButton('Scan', ['class' => 'btn btn-primary']) ?>
