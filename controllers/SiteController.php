@@ -95,33 +95,33 @@ class SiteController extends Controller
 
     public function actionEntry()
     {
-        $model = new EntryForm();
-        $request = Yii::$app->request->post();
-        if ($model->load($request)) {
-            // данные в $model удачно проверены
-            // делаем что-то полезное с $model ...
-            $model->file = UploadedFile::getInstance($model, 'file');
-            $model->file->saveAs('files/' . $model->file->baseName . "." . $model->file->extension);
-            return $this->render('entry-confirm',
-                [
-                    'data' => 'DONE'
-                ]);
-
-        }
-        // либо страница отображается первый раз, либо есть ошибка в данных
-        //создания списка файло .CVS
-        $files = array_diff(scandir('files/'), array('..', '.'));
-        $searchFiles = array_map(function ($item) {
-            if (pathinfo($item, PATHINFO_EXTENSION) === 'csv') {
-                return $item;
-            }
-        }, $files);
-
-        return $this->render('entry',
-            [
-                'model' => $model,
-                'files' => array_filter($searchFiles)
-            ]);
+//        $model = new EntryForm();
+//        $request = Yii::$app->request->post();
+//        if ($model->load($request)) {
+//            // данные в $model удачно проверены
+//            // делаем что-то полезное с $model ...
+//            $model->file = UploadedFile::getInstance($model, 'file');
+//            $model->file->saveAs('files/' . $model->file->baseName . "." . $model->file->extension);
+//            return $this->render('entry-confirm',
+//                [
+//                    'data' => 'DONE'
+//                ]);
+//
+//        }
+//        // либо страница отображается первый раз, либо есть ошибка в данных
+//        //создания списка файло .CVS
+//        $files = array_diff(scandir('files/'), array('..', '.'));
+//        $searchFiles = array_map(function ($item) {
+//            if (pathinfo($item, PATHINFO_EXTENSION) === 'csv') {
+//                return $item;
+//            }
+//        }, $files);
+//
+//        return $this->render('entry',
+//            [
+//                'model' => $model,
+//                'files' => array_filter($searchFiles)
+//            ]);
     }
 
     function csv_to_array($filename = '', $delimiter = ',')
